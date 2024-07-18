@@ -8,7 +8,7 @@ const App = () => {
   const [user, setUser] = useState({ name: "", scrum: false });
   const [users, setUsers] = useState([]);
   const [session, setSession] = useState(false);
-  const [socket, setSocket] = useState(null);
+  const [socket, setSocket] = useState<any>(null);
 
   useEffect(() => {
     // Connect to the Socket.IO server
@@ -42,7 +42,7 @@ const App = () => {
     socket.emit("message", count + 1);
   };
 
-  const handleActivation = (form) => {
+  const handleActivation = (form: any) => {
     setSession(true);
     setUser(form);
 
@@ -60,7 +60,7 @@ const App = () => {
             <div>
               ----- List of current users: <span>{users.length + 1}</span>
               <ul>
-                {users.map((user) => (
+                {users.map((user: any) => (
                   <li key={user.id}>{user.name}</li>
                 ))}
               </ul>

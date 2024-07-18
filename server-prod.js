@@ -25,6 +25,7 @@ app.use("*", async (_, res) => {
     const html = template.replace(`<!--outlet-->`, render);
     res.status(200).set({ "Content-Type": "text/html" }).end(html);
   } catch (error) {
+    console.log(error)
     res.status(500).end(error);
   }
 });

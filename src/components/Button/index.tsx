@@ -1,7 +1,6 @@
-import React from "react";
 import "./styles.css";
 
-const Button = ({ onClick, label, disabled }) => {
+const Button = ({ onClick, label, disabled }: any) => {
   return (
     <button className="button-container" onClick={onClick} disabled={disabled}>
       {label}
