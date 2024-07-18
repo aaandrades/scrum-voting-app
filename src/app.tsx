@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles.css";
 import { io } from "socket.io-client";
 import Login from "./components/Login";
+import Profile from "./components/Profile";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -56,9 +57,9 @@ const App = () => {
       ) : (
         <>
           <nav className="app-container__navbar">
-            {user.name}
+            <Profile user={user.name} />
             <div>
-              ----- List of current users: <span>{users.length + 1}</span>
+              Current users: <span>{users.length}</span>
               <ul>
                 {users.map((user: any) => (
                   <li key={user.id}>{user.name}</li>
