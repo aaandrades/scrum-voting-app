@@ -12,8 +12,8 @@ interface VotingProviderProps {
 const VotingProvider = ({ isVoting, user }: VotingProviderProps) => {
   return (
     <article className="app-container__content">
-      {user.scrum && <button>Start voting</button>}
-      <TicketDetails />
+      {/* {user.scrum && <button>Start voting</button>} */}
+      {/* <TicketDetails /> */}
       {isVoting ? <VotingCards /> : <VotingResults />}
     </article>
   );
