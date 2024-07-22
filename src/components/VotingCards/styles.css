@@ -1,0 +1,50 @@
+.voting-container {
+  background-color: var(--bg-200);
+  padding: 64px;
+  width: 80%;
+  max-width: 1200px;
+  border-radius: 4px;
+  box-shadow: 1px 1px 2px 0px rgb(5 5 5 / 36%);
+}
+
+.voting-container__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 32px;
+  color: var(--text-100);
+}
+
+.voting-container__cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 24px;
+}
+
+.voting-container__vote {
+  border-radius: 4px;
+  height: 250px;
+  font-size: 43px;
+  cursor: pointer;
+  border: none;
+  color: var(--primary-100);
+  box-shadow: 0px 0px 10px 0px rgb(5 5 5 / 36%);
+}
+
+.voting-container__vote:hover {
+  box-shadow: 0px 0px 0px 6px var(--primary-200);
+  transition: all 0.2s;
+}
+
+.option-selected {
+  background-color: var(--primary-100);
+  color: var(--text-100);
+  box-shadow: 0px 0px 0px 6px var(--primary-200);
+}
+
+.voting-container__confirm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 64px;
+}

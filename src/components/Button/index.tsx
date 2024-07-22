@@ -1,8 +1,25 @@
 import "./styles.css";
 
-const Button = ({ onClick, label, disabled }: any) => {
+interface ButtonProps {
+  onClick?: () => void;
+  label: string;
+  disabled?: boolean;
+  type?: "button" | "submit";
+}
+
+const Button = ({
+  onClick,
+  label,
+  disabled = false,
+  type = "button",
+}: ButtonProps) => {
   return (
-    <button className="button-container" onClick={onClick} disabled={disabled}>
+    <button
+      className="button-container"
+      type={type}
+      onClick={onClick}
+      disabled={disabled}
+    >
       {label}
     </button>
   );

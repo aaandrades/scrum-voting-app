@@ -1,19 +1,24 @@
-import React, { useState } from "react";
+import { SyntheticEvent, useState } from "react";
 import "./styles.css";
 import Checkbox from "../Checkbox";
 import Button from "../Button";
+import { User } from "../../types/main";
 
-const Login = ({ onActivated }) => {
-  const [form, setForm] = useState({ scrum: false, name: "" });
+interface LoginProps {
+  onActivated: (form: User) => void;
+}
 
-  const handleChange = (e, multiText = false) => {
+const Login = ({ onActivated }: LoginProps) => {
+  const [form, setForm] = useState<User>({ id: "", scrum: false, name: "" });
+
+  const handleChange = (e: any, multiText = false) => {
     setForm({
       ...form,
       [e.target.name]: multiText ? e.target.value : e.target.checked,
     });
   };
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     onActivated(form);
   };

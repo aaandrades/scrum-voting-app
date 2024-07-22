@@ -3,10 +3,14 @@ import "./styles.css";
 import { io } from "socket.io-client";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
+import ActiveUsers from "./components/ActiveUsers";
+import VotingProvider from "./components/VotingProvider";
+import Footer from "./components/Footer";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [user, setUser] = useState({ name: "", scrum: false });
+  const [isVoting, setIsVoting] = useState(true);
+  const [user, setUser] = useState({ id: "", name: "", scrum: false });
   const [users, setUsers] = useState([]);
   const [session, setSession] = useState(false);
   const [socket, setSocket] = useState<any>(null);
@@ -38,11 +42,6 @@ const App = () => {
     };
   }, []);
 
-  const increaseNumber = () => {
-    setCount(count + 1);
-    socket.emit("message", count + 1);
-  };
-
   const handleActivation = (form: any) => {
     setSession(true);
     setUser(form);
@@ -58,27 +57,12 @@ const App = () => {
         <>
           <nav className="app-container__navbar">
             <Profile user={user.name} />
-            <div>
-              Current users: <span>{users.length}</span>
-              <ul>
-                {users.map((user: any) => (
-                  <li key={user.id}>{user.name}</li>
-                ))}
-              </ul>
-            </div>
-            <button onClick={increaseNumber}>Count</button>
+            <ActiveUsers users={users} />
           </nav>
-          <article className="app-container__content">
-            <p>Scrum voting session</p>
-            <div>
-              <div>{count}</div>
-            </div>
-          </article>
+          <VotingProvider isVoting={isVoting} user={user} />
         </>
       )}
-      <span className="app-container__copyright">
-        Made with ❤️ by Andres Andrade
-      </span>
+      <Footer />
     </main>
   );
 };
