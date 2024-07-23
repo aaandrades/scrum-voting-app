@@ -7,16 +7,16 @@ import VotingProvider from "./components/VotingProvider";
 import Footer from "./components/Footer";
 import { useSocket } from "./Context/Index";
 import { activateUser } from "./Sockets/emits";
+import { socket } from "./Sockets/sockets";
 
 const App = () => {
-  const { users } = useSocket();
-  const [isVoting, setIsVoting] = useState(true);
-  const [user, setUser] = useState({ id: "", name: "", scrum: false });
+  const { context, setContext } = useSocket();
   const [session, setSession] = useState(false);
+  const { user } = context;
 
   const handleActivation = (form: any) => {
     setSession(true);
-    setUser(form);
+    setContext({ ...context, user: { ...form, id: socket.id } });
     activateUser(form);
   };
 
@@ -28,9 +28,9 @@ const App = () => {
         <>
           <nav className="app-container__navbar">
             <Profile user={user.name} />
-            <ActiveUsers users={users} />
+            <ActiveUsers users={context.users} />
           </nav>
-          <VotingProvider isVoting={isVoting} user={user} />
+          <VotingProvider user={user} />
         </>
       )}
       <Footer />

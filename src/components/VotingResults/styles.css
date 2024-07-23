@@ -1,0 +1,6 @@
+.voting-results__item {
+}
+
+.voting-result__item--voted {
+  background-color: red;
+}

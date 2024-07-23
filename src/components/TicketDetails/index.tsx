@@ -1,5 +1,5 @@
 const TicketDetails = () => {
-  return <div>TicketDetails</div>;
+  return <article>TicketDetails</article>;
 };
 
 export default TicketDetails;

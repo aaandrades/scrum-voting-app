@@ -2,12 +2,19 @@ import { useState } from "react";
 import "./styles.css";
 import { SCRUM_VALUES } from "../../utils/constants";
 import Button from "../Button";
+import { submitVoteEvent } from "../../Sockets/emits";
+import { useSocket } from "../../Context/Index";
 
 const VotingCards = () => {
   const [selection, setSelection] = useState<number | string>("");
+  const { context, setContext } = useSocket();
+  const { user } = context;
 
   const handleSelection = () => {
-    console.log("vote: ", selection);
+    const newContext = { ...context, voteSubmitted: true, startVoting: false };
+    setSelection("");
+    setContext(newContext);
+    submitVoteEvent(`${selection}`, user);
   };
 
   return (
