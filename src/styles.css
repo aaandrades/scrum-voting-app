@@ -11,6 +11,8 @@
   --bg-200: #1d2e3d;
   --bg-300: #354656;
   --success: #00ff00;
+  --main-btn: #3d5a80;
+  --main-btn-hover: #1f3a5f;
 }
 
 * {
@@ -93,22 +95,32 @@ main {
   max-width: 500px;
   min-width: 300px;
   overflow-y: auto;
+  position: relative;
 }
 
 .app-container__copyright {
   font-size: 14px;
   position: absolute;
   bottom: 0;
+  left: 50%;
   width: 100%;
   text-align: center;
   padding: 1rem;
   color: var(--text-200);
+  transform: translateX(-50%);
 }
 
 .app-container__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  position: relative;
   width: 80%;
+}
+
+@media (max-width: 800px) {
+  .app-container__navbar {
+    display: none;
+  }
+  .app-container__content {
+    width: 100%;
+    padding: 32px;
+  }
 }

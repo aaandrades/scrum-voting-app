@@ -1,0 +1,26 @@
+.scrum-actions {
+  width: 80%;
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.scrum-actions__button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  /* background-color: var(--main-btn); */
+  background-color: #0085ff;
+  color: var(--text-100);
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 1px 1px 2px 0px rgb(5 5 5 / 36%);
+  transition: background-color 0.2s;
+}
+
+.scrum-actions__button:hover {
+  /* background-color: var(--main-btn-hover); */
+  background-color: #69b4ff;
+  transition: background-color 0.2s;
+}

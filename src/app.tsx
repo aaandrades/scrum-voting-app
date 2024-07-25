@@ -4,7 +4,6 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import ActiveUsers from "./components/ActiveUsers";
 import VotingProvider from "./components/VotingProvider";
-import Footer from "./components/Footer";
 import { useSocket } from "./Context/Index";
 import { activateUser } from "./Sockets/emits";
 import { socket } from "./Sockets/sockets";
@@ -33,7 +32,6 @@ const App = () => {
           <VotingProvider user={user} />
         </>
       )}
-      <Footer />
     </main>
   );
 };

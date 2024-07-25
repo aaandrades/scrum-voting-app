@@ -24,15 +24,15 @@ const Login = ({ onActivated }: LoginProps) => {
   };
 
   return (
-    <form className="login-container" onSubmit={onSubmit}>
-      <h2 className="login-container__title">Scrum voting session</h2>
-      <p className="login-container__description">
+    <form className="login" onSubmit={onSubmit}>
+      <h2 className="login__title">Scrum voting session</h2>
+      <p className="login__description">
         Set up your planning poker in seconds, start estimating story points in
         scrum poker now
       </p>
-      <div className="login-container__form">
+      <div className="login__form">
         <input
-          className="login-container__input"
+          className="login__input"
           id="login"
           name="name"
           type="text"

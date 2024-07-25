@@ -1,4 +1,4 @@
-.login-container {
+.login {
   width: 80%;
   max-width: 600px;
   color: var(--text-100);
@@ -14,19 +14,19 @@
   border-radius: 4px;
 }
 
-.login-container__title {
+.login__title {
   font-size: 2.5rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-.login-container__description {
+.login__description {
   font-size: 1rem;
   font-weight: 400;
   margin-bottom: 1rem;
 }
 
-.login-container__form {
+.login__form {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -34,7 +34,7 @@
   gap: 1rem;
 }
 
-.login-container__input {
+.login__input {
   width: 100%;
   padding: 1rem;
   border-radius: 4px;
@@ -42,6 +42,6 @@
   outline: none;
 }
 
-.login-container__input:focus {
+.login__input:focus {
   box-shadow: 0 0 0 2px var(--primary-200);
 }

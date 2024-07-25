@@ -1,4 +1,4 @@
-.profile-container {
+.profile {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,7 +7,7 @@
   padding: 64px;
 }
 
-.profile-container__image {
+.profile__image {
   -webkit-user-select: none;
   user-select: none;
   display: flex;
@@ -22,7 +22,7 @@
   transition: background-color 0.3s ease-in-out;
 }
 
-.profile-container__generate-btn {
+.profile__generate-btn {
   position: absolute;
   bottom: 0;
   left: 50%;
@@ -37,17 +37,17 @@
   transition: background-color 0.3s;
 }
 
-.profile-container__generate-btn:hover {
+.profile__generate-btn:hover {
   background-color: var(--text-200);
   transition: background-color 0.3s;
 }
 
-.profile-container__title {
+.profile__title {
   margin-top: 5px;
   text-align: center;
 }
 
-.profile-container__description {
+.profile__description {
   font-size: 14px;
   font-weight: 100;
   margin-top: 5px;

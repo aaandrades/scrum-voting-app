@@ -1,6 +1,31 @@
-.voting-results__item {
+.voting-results__container {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 24px;
 }
 
-.voting-result__item--voted {
-  background-color: red;
+.voting-results__item,
+.voting-results__item--voted {
+  border-radius: 4px;
+  height: 150px;
+  color: var(--text-100);
+  background-color: var(--bg-200);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.voting-results__item--voted {
+  background-color: var(--primary-200);
+}
+
+.voting-results__title {
+  font-size: 1rem;
+}
+
+.voting-results__value {
+  font-size: 3rem;
 }

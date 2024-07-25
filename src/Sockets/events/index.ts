@@ -23,7 +23,12 @@ export const socketEvents = ({ setValue }: any) => {
   });
 
   socket.on("event::showResults", () => {
-    setValue((state: SocketsState) => ({ ...state, showResults: true }));
+    setValue((state: SocketsState) => ({
+      ...state,
+      showResults: true,
+      startVoting: false,
+      voteSubmitted: false,
+    }));
   });
 
   socket.on("event::voteSubmitted", (votes) => {

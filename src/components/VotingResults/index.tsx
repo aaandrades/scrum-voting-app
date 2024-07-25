@@ -5,20 +5,22 @@ import "./styles.css";
 const VotingResults = () => {
   const { context } = useSocket();
   const { showResults, users } = context;
-  console.log({ users });
+
   return (
-    <article>
-      <div>
-        {users.map((user: User) => (
-          <div
-            key={user.id}
-            className={`${user.vote ? "voting-result__item--voted" : ""}`}
-          >
-            <span>{user.name}</span>
-            {showResults && <span>{user.vote}</span>}
-          </div>
-        ))}
-      </div>
+    <article className="voting-results__container">
+      {users.map((user: User) => (
+        <div
+          key={user.id}
+          className={`${
+            user.vote ? "voting-results__item--voted" : "voting-results__item"
+          }`}
+        >
+          <span className="voting-results__title">{user.name}</span>
+          {showResults && (
+            <span className="voting-results__value">{user.vote}</span>
+          )}
+        </div>
+      ))}
     </article>
   );
 };

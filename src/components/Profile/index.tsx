@@ -16,14 +16,11 @@ const Profile = ({ user }: ProfileProps) => {
   };
 
   return (
-    <div className="profile-container">
-      <picture
-        className="profile-container__image"
-        style={{ backgroundColor: color }}
-      >
+    <div className="profile">
+      <picture className="profile__image" style={{ backgroundColor: color }}>
         {buildAvatar(user)}
         <button
-          className="profile-container__generate-btn"
+          className="profile__generate-btn"
           title="Generate avatar"
           type="button"
           onClick={handleClick}
@@ -32,10 +29,10 @@ const Profile = ({ user }: ProfileProps) => {
         </button>
       </picture>
 
-      <span className="profile-container__title">
+      <span className="profile__title">
         <strong>{user}</strong>
       </span>
-      <span className="profile-container__description">{description}</span>
+      <span className="profile__description">{description}</span>
     </div>
   );
 };

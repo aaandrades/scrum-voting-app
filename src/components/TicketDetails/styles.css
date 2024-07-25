@@ -1,0 +1,15 @@
+.ticket-details {
+  width: 80%;
+  margin-bottom: 24px;
+  background-color: var(--bg-200);
+  color: var(--text-100);
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.ticket-details__title {
+}
+
+.ticket-details__description {
+  margin-top: 16px;
+}

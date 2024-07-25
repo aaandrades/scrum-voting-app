@@ -7,6 +7,13 @@
   box-shadow: 1px 1px 2px 0px rgb(5 5 5 / 36%);
 }
 
+@media (max-width: 700px) {
+  .voting-container {
+    padding: 32px;
+    width: 100%;
+  }
+}
+
 .voting-container__title {
   font-size: 24px;
   font-weight: bold;
@@ -16,13 +23,13 @@
 
 .voting-container__cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 24px;
 }
 
 .voting-container__vote {
   border-radius: 4px;
-  height: 250px;
+  height: 150px;
   font-size: 43px;
   cursor: pointer;
   border: none;
@@ -47,4 +54,15 @@
   align-items: center;
   justify-content: center;
   margin-top: 64px;
+}
+
+@media (max-width: 1100px) {
+  .voting-container__cards-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  .voting-container__vote {
+    height: 150px;
+    font-size: 24px;
+  }
 }
