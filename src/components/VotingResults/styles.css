@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 24px;
+  margin-bottom: 24px;
 }
 
 .voting-results__item,
@@ -16,6 +17,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  position: relative;
 }
 
 .voting-results__item--voted {
@@ -28,4 +31,22 @@
 
 .voting-results__value {
   font-size: 3rem;
+}
+
+.edit-vote__icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  display: flex;
+  background-color: transparent;
+  transition: background-color 0.15s;
+}
+
+.edit-vote__icon:hover {
+  background-color: rgba(44, 103, 100, 0.439);
+  transition: background-color 0.15s;
 }

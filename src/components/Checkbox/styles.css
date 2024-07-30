@@ -35,7 +35,7 @@
 
 .checkbox-container input:checked ~ .checkmark {
   transition: background-color 0.2s;
-  background-color: var(--accent-100);
+  background-color: var(--main-btn);
 }
 
 .checkmark:after {

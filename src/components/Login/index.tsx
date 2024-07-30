@@ -3,6 +3,7 @@ import "./styles.css";
 import Checkbox from "../Checkbox";
 import Button from "../Button";
 import { User } from "../../types/main";
+import Input from "../Input";
 
 interface LoginProps {
   onActivated: (form: User) => void;
@@ -31,13 +32,14 @@ const Login = ({ onActivated }: LoginProps) => {
         scrum poker now
       </p>
       <div className="login__form">
-        <input
-          className="login__input"
+        <Input
+          className="general-input"
           id="login"
           name="name"
           type="text"
           placeholder="Enter your name"
-          onChange={(e) => handleChange(e, true)}
+          value={form.name}
+          onChange={(e: any) => handleChange(e, true)}
         />
         <Checkbox value={form.scrum} onChange={handleChange} />
         <Button type="submit" label="Join room" disabled={!form.name} />

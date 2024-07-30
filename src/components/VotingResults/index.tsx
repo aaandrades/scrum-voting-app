@@ -1,10 +1,21 @@
 import { useSocket } from "../../Context/Index";
-import { User } from "../../types/main";
+import { SocketsState, User } from "../../types/main";
+import EditButton from "../EditButton";
 import "./styles.css";
 
 const VotingResults = () => {
-  const { context } = useSocket();
+  const { context, setContext } = useSocket();
   const { showResults, users } = context;
+
+  const enableVoting = () => {
+    console.log("HERE");
+    setContext((state: SocketsState) => ({
+      ...state,
+      voteSubmitted: false,
+      showResults: false,
+      startVoting: true,
+    }));
+  };
 
   return (
     <article className="voting-results__container">
@@ -18,6 +29,9 @@ const VotingResults = () => {
           <span className="voting-results__title">{user.name}</span>
           {showResults && (
             <span className="voting-results__value">{user.vote}</span>
+          )}
+          {user.id === context.user.id && user.vote && (
+            <EditButton onClick={enableVoting} />
           )}
         </div>
       ))}

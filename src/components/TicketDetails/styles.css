@@ -3,13 +3,36 @@
   margin-bottom: 24px;
   background-color: var(--bg-200);
   color: var(--text-100);
-  padding: 15px;
+  padding: 30px 40px;
   border-radius: 4px;
 }
 
 .ticket-details__title {
+  font-size: 2rem;
 }
 
 .ticket-details__description {
-  margin-top: 16px;
+  font-size: 1.1rem;
+  margin: 24px 0 12px;
+}
+
+.ticket-details__content {
+  display: flex;
+  align-items: center;
+}
+
+.ticket-details__content > .general-input,
+.ticket-details__content > .button-container {
+  height: 50px;
+}
+.ticket-details__content > .general-input {
+  width: calc(100% - 190px);
+}
+
+.ticket-details__content > .button-container {
+  margin-left: 15px;
+}
+
+.ticket-details__empty {
+  margin-top: 24px;
 }

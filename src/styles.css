@@ -11,8 +11,8 @@
   --bg-200: #1d2e3d;
   --bg-300: #354656;
   --success: #00ff00;
-  --main-btn: #3d5a80;
-  --main-btn-hover: #1f3a5f;
+  --main-btn: #2563eb;
+  --main-btn-hover: #1b51c4;
 }
 
 * {
@@ -113,6 +113,18 @@ main {
 .app-container__content {
   position: relative;
   width: 80%;
+}
+
+.general-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 4px;
+  border: none;
+  outline: none;
+}
+
+.general-input:focus {
+  box-shadow: 0 0 0 2px var(--primary-200);
 }
 
 @media (max-width: 800px) {

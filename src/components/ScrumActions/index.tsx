@@ -3,32 +3,27 @@ import {
   showResultsEvent,
   startVotingEvent,
 } from "../../Sockets/emits";
+import Button from "../Button";
 import "./styles.css";
 
 const ScrumActions = () => {
   return (
     <div className="scrum-actions">
-      <button
-        className="scrum-actions__button"
+      <Button
         type="button"
         onClick={() => startVotingEvent()}
-      >
-        Start voting
-      </button>
-      <button
-        className="scrum-actions__button"
+        label="Start voting"
+      />
+      <Button
         type="button"
         onClick={() => showResultsEvent()}
-      >
-        Show results
-      </button>
-      <button
-        className="scrum-actions__button"
+        label="Show results"
+      />
+      <Button
         type="button"
         onClick={() => resetVotesEvent()}
-      >
-        Clear votes
-      </button>
+        label="Clear votes"
+      />
     </div>
   );
 };

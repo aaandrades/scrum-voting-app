@@ -10,6 +10,7 @@ const SocketProvider = (props: any) => {
     showResults: false,
     voteSubmitted: false,
     startVoting: false,
+    description: "",
     user: { id: "", name: "", scrum: false },
   });
 

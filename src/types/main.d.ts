@@ -12,6 +12,7 @@ export interface SocketsState {
   voteSubmitted: boolean;
   startVoting: boolean;
   user: User;
+  description: string;
 }
 export interface SocketsContextI {
   context: SocketsState;

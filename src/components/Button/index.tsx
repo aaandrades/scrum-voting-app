@@ -1,7 +1,7 @@
 import "./styles.css";
 
 interface ButtonProps {
-  onClick?: () => void;
+  onClick?: (e: any) => void;
   label: string;
   disabled?: boolean;
   type?: "button" | "submit";

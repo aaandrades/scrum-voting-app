@@ -1,6 +1,7 @@
 export const initializeSockets = (io) => {
   let users = [];
   let votes = [];
+  let descriptionBE = "";
 
   io.on("connection", (socket) => {
     console.log("New connection stabilished");
@@ -25,10 +26,15 @@ export const initializeSockets = (io) => {
       io.emit("event::showResults");
     });
 
+    socket.on("dispatch::description", (description) => {
+      descriptionBE = description;
+      io.emit("event::description", description);
+    });
+
     socket.on("dispatch::join", (data) => {
       console.log("User joined: ", data);
       users.push({ ...data, id: socket.id });
-      io.emit("event::join", users);
+      io.emit("event::join", { users, description: descriptionBE });
     });
 
     socket.on("disconnect", () => {

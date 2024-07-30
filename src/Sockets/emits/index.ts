@@ -20,3 +20,7 @@ export const resetVotesEvent = () => {
 export const showResultsEvent = () => {
   socket.emit("dispatch::showResults");
 };
+
+export const submitDescriptionEvent = (description: string) => {
+  socket.emit("dispatch::description", description);
+};
