@@ -8,7 +8,7 @@ const SocketProvider = (props: any) => {
     users: [],
     showVotes: false,
     showResults: false,
-    voteSubmitted: false,
+    voteSubmitted: true,
     startVoting: false,
     description: "",
     user: { id: "", name: "", scrum: false },

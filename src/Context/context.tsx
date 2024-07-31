@@ -7,7 +7,7 @@ const SocketContext = createContext<SocketsContextI>({
     showVotes: false,
     showResults: false,
     user: { id: "", name: "", scrum: false },
-    voteSubmitted: false,
+    voteSubmitted: true,
     description: "",
     startVoting: false,
   },

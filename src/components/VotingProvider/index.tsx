@@ -19,8 +19,10 @@ const VotingProvider = ({ user }: VotingProviderProps) => {
     <section className="app-container__content">
       <article className="voting-provider__container">
         <TicketDetails />
-        {startVoting && !user.scrum && <VotingCards />}
-        {(showResults || voteSubmitted || user.scrum) && <VotingResults />}
+        {startVoting && !user.scrum ? <VotingCards /> : <VotingResults />}
+        {/* {(showResults || voteSubmitted || user.scrum) && <VotingResults />} */}
+        {/* {startVoting && !user.scrum && <VotingCards />}
+        {(showResults || voteSubmitted || user.scrum) && <VotingResults />} */}
         {user.scrum && <ScrumActions />}
       </article>
       <Footer />
