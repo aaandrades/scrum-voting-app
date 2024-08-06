@@ -7,7 +7,6 @@ export interface User {
 
 export interface SocketsState {
   users: User[];
-  showVotes: boolean;
   showResults: boolean;
   voteSubmitted: boolean;
   startVoting: boolean;

@@ -4,12 +4,11 @@ import { SocketsContextI } from "../types/main";
 const SocketContext = createContext<SocketsContextI>({
   context: {
     users: [],
-    showVotes: false,
-    showResults: false,
-    user: { id: "", name: "", scrum: false },
-    voteSubmitted: true,
     description: "",
     startVoting: false,
+    showResults: false,
+    voteSubmitted: false,
+    user: { id: "", name: "", scrum: false },
   },
   setContext: () => {},
 });

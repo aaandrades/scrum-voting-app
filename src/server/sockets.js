@@ -15,16 +15,20 @@ export const initializeSockets = (io) => {
         votes = votes.map((v) =>
           v.user.id === user.id ? { value: vote, user } : v
         );
-        io.emit("event::voteSubmitted", votes);
+        io.emit("event::voteSubmitted", {
+          votes,
+          userId: user.id,
+          showingResults,
+        });
         return;
       }
       votes.push({ value: vote, user });
-      io.emit("event::voteSubmitted", votes);
+      io.emit("event::voteSubmitted", { votes, userId: user.id });
     });
 
     socket.on("dispatch::resetVotes", () => {
       votes = [];
-      io.emit("event::voteSubmitted", votes);
+      io.emit("event::voteSubmitted", { votes });
     });
 
     socket.on("dispatch::startVoting", () => {
@@ -53,13 +57,21 @@ export const initializeSockets = (io) => {
         description: descriptionBE,
         votes,
         sessionStarted,
-        // showingResults,
+        showingResults,
+        id: socket.id,
       });
     });
 
     socket.on("disconnect", () => {
       console.log("A user disconnected: ", socket.id);
       users = users.filter((user) => user.id !== socket.id);
+      if (users.length === 0) {
+        users = [];
+        votes = [];
+        descriptionBE = "";
+        sessionStarted = false;
+        showingResults = false;
+      }
       io.emit("event::leave", users);
     });
   });

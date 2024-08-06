@@ -26,7 +26,9 @@ const VotingResults = () => {
           }`}
         >
           <span className="voting-results__title">{user.name}</span>
-          {user.scrum && <strong className="voting-results__scrum">Scrum</strong>}
+          {user.scrum && (
+            <strong className="voting-results__scrum">Scrum</strong>
+          )}
           {showResults && (
             <span className="voting-results__value">{user.vote}</span>
           )}

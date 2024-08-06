@@ -6,11 +6,10 @@ import { initSockets } from "../Sockets/sockets";
 const SocketProvider = (props: any) => {
   const [value, setValue] = useState({
     users: [],
-    showVotes: false,
-    showResults: false,
-    voteSubmitted: true,
-    startVoting: false,
     description: "",
+    startVoting: false,
+    showResults: false,
+    voteSubmitted: false,
     user: { id: "", name: "", scrum: false },
   });
 
