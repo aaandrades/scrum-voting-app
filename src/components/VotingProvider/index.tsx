@@ -13,13 +13,12 @@ interface VotingProviderProps {
 
 const VotingProvider = ({ user }: VotingProviderProps) => {
   const {
-    context: { voteSubmitted, startVoting, showResults },
+    context: { startVoting, showResults, users },
   } = useSocket();
 
   const calculateAverage = () => {
-    const { users } = useSocket().context;
     const votes = users
-      .filter((user) => !user.scrum)
+      .filter((user) => !user.scrum && user.vote)
       .map((user) => parseInt(user.vote || "0", 10));
     const total = votes.reduce((acc, vote) => acc + vote, 0);
     return total / votes.length;
@@ -27,16 +26,18 @@ const VotingProvider = ({ user }: VotingProviderProps) => {
 
   return (
     <section className="app-container__content">
-      <article className="voting-provider__container">
-        <TicketDetails />
-        {showResults && <div>The average is: {calculateAverage()} </div>}
-        {startVoting && !user.scrum ? <VotingCards /> : <VotingResults />}
-        {/* {(showResults || voteSubmitted || user.scrum) && <VotingResults />} */}
-        {/* {startVoting && !user.scrum && <VotingCards />}
+      <TicketDetails />
+      {showResults && (
+        <p className="voting-provider__average-result">
+          Average: {calculateAverage()}
+        </p>
+      )}
+      {startVoting && !user.scrum ? <VotingCards /> : <VotingResults />}
+      {/* {(showResults || voteSubmitted || user.scrum) && <VotingResults />} */}
+      {/* {startVoting && !user.scrum && <VotingCards />}
         {(showResults || voteSubmitted || user.scrum) && <VotingResults />} */}
-        {user.scrum && <ScrumActions />}
-      </article>
-      <Footer />
+      {user.scrum && <ScrumActions />}
+      {/* <Footer /> */}
     </section>
   );
 };

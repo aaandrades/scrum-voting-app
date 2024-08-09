@@ -1,11 +1,12 @@
 .ticket-details {
-  width: 80%;
+  width: 100%;
+  max-width: 1200px;
   margin-bottom: 24px;
   background-color: var(--bg-200);
   color: var(--text-100);
   padding: 30px 40px;
   border-radius: 4px;
-  box-shadow: 0px 0px 8px 1px #181818;
+  box-shadow: 0px 1px 5px -1px #181818;
 }
 
 .ticket-details__title {
