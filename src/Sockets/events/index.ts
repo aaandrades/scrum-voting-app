@@ -1,3 +1,4 @@
+import { enqueueSnackbar } from "notistack";
 import { SocketsState, User } from "../../types/main";
 import { socket } from "../sockets";
 
@@ -33,11 +34,15 @@ export const socketEvents = ({ setValue }: any) => {
       startVoting: true,
       showResults: false,
       voteSubmitted: false,
-      users
+      users,
     }));
   });
 
   socket.on("event::description", (description) => {
+    enqueueSnackbar("Description updated", {
+      variant: "success",
+      autoHideDuration: 1500,
+    });
     setValue((state: SocketsState) => ({ ...state, description }));
   });
 
@@ -67,7 +72,7 @@ export const socketEvents = ({ setValue }: any) => {
           users,
           voteSubmitted: state.voteSubmitted || isSameUser,
           showResults: showingResults || false,
-          startVoting: resetVotes || state.startVoting
+          startVoting: resetVotes || state.startVoting,
         };
       });
     }

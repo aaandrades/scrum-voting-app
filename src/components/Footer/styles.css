@@ -1,0 +1,57 @@
+.footer-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  transform: translate(25%, 25%);
+  background: #7272720f;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.footer-container__text {
+  position: absolute;
+  top: 10px;
+  left: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  padding-left: 15px;
+  color: var(--text-100);
+  animation: fadeOut 0.3s forwards;
+  text-align: center;
+  transition: background 0.3s;
+}
+
+.footer-container:hover {
+  background: #ececec;
+  transition: background 0.3s;
+}
+
+.footer-container:hover ~ .footer-container__text {
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    display: none;
+  }
+}

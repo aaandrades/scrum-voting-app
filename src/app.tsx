@@ -7,6 +7,8 @@ import VotingProvider from "./components/VotingProvider";
 import { useSocket } from "./Context/Index";
 import { activateUser } from "./Sockets/emits";
 import { socket } from "./Sockets/sockets";
+import "animate.css";
+import Footer from "./components/Footer";
 
 const App = () => {
   const { context, setContext } = useSocket();
@@ -41,6 +43,7 @@ const App = () => {
           <VotingProvider user={user} />
         </>
       )}
+      <Footer />
     </main>
   );
 };

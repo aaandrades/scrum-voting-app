@@ -1,7 +1,10 @@
+import "./styles.css";
+
 const Footer = () => (
-  <span className="app-container__copyright">
-    Made with ❤️ by Andres Andrade
-  </span>
+  <>
+    <div className="footer-container">❤️</div>
+    <div className="footer-container__text">Made with ❤️ by Andrés Andrade</div>
+  </>
 );
 
 export default Footer;

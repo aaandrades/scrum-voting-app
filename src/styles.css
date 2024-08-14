@@ -96,18 +96,6 @@ main {
   position: relative;
 }
 
-.app-container__copyright {
-  font-size: 14px;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 100%;
-  text-align: center;
-  padding: 1rem;
-  color: var(--text-200);
-  transform: translateX(-50%);
-}
-
 .app-container__content {
   width: calc(100% - 300px);
   height: 100vh;

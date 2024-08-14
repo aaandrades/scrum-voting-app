@@ -26,6 +26,10 @@
   background-color: var(--primary-200);
 }
 
+.animate__animated.animate__flipInX {
+  --animate-duration: 700ms;
+}
+
 .voting-results__item--scrum {
   box-shadow: 0px 0px 1px 3px var(--main-btn) inset;
 }
