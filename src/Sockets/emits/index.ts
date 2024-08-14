@@ -13,10 +13,6 @@ export const submitVoteEvent = (vote: string, user: User) => {
   socket.emit("dispatch::voteSubmitted", { vote, user });
 };
 
-export const resetVotesEvent = () => {
-  socket.emit("dispatch::resetVotes");
-};
-
 export const showResultsEvent = () => {
   socket.emit("dispatch::showResults");
 };

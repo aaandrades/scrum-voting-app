@@ -1,8 +1,4 @@
-import {
-  resetVotesEvent,
-  showResultsEvent,
-  startVotingEvent,
-} from "../../Sockets/emits";
+import { showResultsEvent, startVotingEvent } from "../../Sockets/emits";
 import Button from "../Button";
 import "./styles.css";
 
@@ -18,11 +14,6 @@ const ScrumActions = () => {
         type="button"
         onClick={() => showResultsEvent()}
         label="Show results"
-      />
-      <Button
-        type="button"
-        onClick={() => resetVotesEvent()}
-        label="Clear votes"
       />
     </div>
   );

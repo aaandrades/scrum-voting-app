@@ -21,9 +21,7 @@ const VotingResults = () => {
       {users.map((user: User) => (
         <div
           key={user.id}
-          className={`${
-            user.vote ? "voting-results__item--voted" : "voting-results__item"
-          }`}
+          className={`${user.vote ? "voting-results__item--voted" : "voting-results__item"} ${user.scrum ? "voting-results__item--scrum" : ""}`}
         >
           <span className="voting-results__title">{user.name}</span>
           {user.scrum && (

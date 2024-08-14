@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./styles.css";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
@@ -16,8 +16,17 @@ const App = () => {
   const handleActivation = (form: any) => {
     setSession(true);
     setContext({ ...context, user: { ...form, id: socket.id } });
-    activateUser(form);
+    activateUser({ ...form, votes: "" });
   };
+
+  useEffect(() => {
+    // Add listener for resolution
+    window.addEventListener("resize", (size: any) => {
+      if (size.target.innerWidth < 1000) {
+        console.log("EXECUTING");
+      }
+    });
+  }, []);
 
   return (
     <main className={!session ? "app-login" : "app-container"}>

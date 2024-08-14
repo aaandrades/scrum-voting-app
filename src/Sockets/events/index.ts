@@ -5,23 +5,15 @@ import { socket } from "../sockets";
 export const socketEvents = ({ setValue }: any) => {
   socket.on("event::join", (data) => {
     console.log("User joined FE: ", data);
-    const { users, description, votes, sessionStarted, id, showingResults } =
-      data;
-    const mapUsers = users.map((user: User) => {
-      // Find the last vote for the user
-      const vote = votes
-        .reverse()
-        .find((vote: { user: { id: string } }) => vote.user.id === user.id);
-      return vote ? { ...user, vote: vote.value } : { ...user, vote: "" };
-    });
+    const { users, description, sessionStarted, id, showingResults } = data;
 
     setValue((state: SocketsState) => {
       if (state.user.id !== id) {
-        return { ...state, users: mapUsers };
+        return { ...state, users };
       } else {
         return {
           ...state,
-          users: mapUsers,
+          users,
           description,
           startVoting: sessionStarted ? true : false,
           showResults: showingResults,
@@ -35,12 +27,13 @@ export const socketEvents = ({ setValue }: any) => {
     setValue((state: SocketsState) => ({ ...state, users: data }));
   });
 
-  socket.on("event::startVoting", () => {
+  socket.on("event::startVoting", (users) => {
     setValue((state: SocketsState) => ({
       ...state,
       startVoting: true,
       showResults: false,
       voteSubmitted: false,
+      users
     }));
   });
 
@@ -60,25 +53,21 @@ export const socketEvents = ({ setValue }: any) => {
   socket.on(
     "event::voteSubmitted",
     (data: {
-      votes: { user: User; value: string }[];
+      users: User[];
       userId: string;
       showingResults: boolean;
+      resetVotes: boolean;
     }) => {
-      const { votes, userId, showingResults } = data;
+      const { users, userId, showingResults, resetVotes } = data;
       setValue((state: SocketsState) => {
-        const { users } = state;
-        const mapUsers = users.map((user) => {
-          // Find the last vote for the user
-          const vote = votes.reverse().find((vote) => vote.user.id === user.id);
-          return vote ? { ...user, vote: vote.value } : { ...user, vote: "" };
-        });
-
+        console.log("NEW USERS: ", users);
         const isSameUser = userId === state.user.id;
         return {
           ...state,
-          users: mapUsers,
+          users,
           voteSubmitted: state.voteSubmitted || isSameUser,
-          showResults: showingResults,
+          showResults: showingResults || false,
+          startVoting: resetVotes || state.startVoting
         };
       });
     }

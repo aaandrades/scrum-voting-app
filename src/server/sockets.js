@@ -1,6 +1,5 @@
 export const initializeSockets = (io) => {
   let users = [];
-  let votes = [];
   let descriptionBE = "";
   let sessionStarted = false;
   let showingResults = false;
@@ -10,36 +9,29 @@ export const initializeSockets = (io) => {
 
     socket.on("dispatch::voteSubmitted", ({ vote, user }) => {
       console.log("Vote received: ", vote, user);
-      const alreadyVoted = votes.find((v) => v.user.id === user.id);
+      const alreadyVoted = !!users.find((u) => u.id === user.id).vote;
+
+      users = users.map((u) => (u.id === user.id ? { ...u, vote: vote } : u));
       if (alreadyVoted) {
-        votes = votes.map((v) =>
-          v.user.id === user.id ? { value: vote, user } : v
-        );
         io.emit("event::voteSubmitted", {
-          votes,
+          users,
           userId: user.id,
           showingResults,
         });
         return;
       }
-      votes.push({ value: vote, user });
-      io.emit("event::voteSubmitted", { votes, userId: user.id });
-    });
-
-    socket.on("dispatch::resetVotes", () => {
-      votes = [];
-      io.emit("event::voteSubmitted", { votes });
+      io.emit("event::voteSubmitted", { users, userId: user.id });
     });
 
     socket.on("dispatch::startVoting", () => {
-      votes = [];
+      users = users.map((u) => ({ ...u, vote: "" }));
       sessionStarted = true;
       showingResults = false;
-      io.emit("event::startVoting");
+      io.emit("event::startVoting", users);
     });
 
     socket.on("dispatch::showResults", () => {
-      // sessionStarted = false;
+      sessionStarted = false;
       showingResults = true;
       io.emit("event::showResults");
     });
@@ -55,7 +47,6 @@ export const initializeSockets = (io) => {
       io.emit("event::join", {
         users,
         description: descriptionBE,
-        votes,
         sessionStarted,
         showingResults,
         id: socket.id,
@@ -67,7 +58,6 @@ export const initializeSockets = (io) => {
       users = users.filter((user) => user.id !== socket.id);
       if (users.length === 0) {
         users = [];
-        votes = [];
         descriptionBE = "";
         sessionStarted = false;
         showingResults = false;
