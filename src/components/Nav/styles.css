@@ -1,0 +1,72 @@
+.app-container__navbar {
+  border-right: 1px solid var(--bg-200);
+  color: var(--text-100);
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-container__button {
+  position: absolute;
+  top: 20px;
+  background-color: var(--bg-200);
+  padding: 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+
+.nav-container__button:hover {
+  background-color: var(--bg-300);
+}
+
+.open-navbar {
+  width: 300px;
+}
+
+.close-navbar {
+  width: 0px;
+}
+
+.close-navbar,
+.open-navbar {
+  transition: width 0.5s;
+}
+
+.open-navbar * {
+  opacity: 1;
+}
+
+.close-navbar * {
+  opacity: 0;
+}
+
+.close-navbar *,
+.open-navbar * {
+  transition: opacity 0.2s;
+}
+
+.open-button {
+  transform: translateX(300px);
+}
+
+.close-button {
+  transform: translateX(0);
+}
+
+.open-button,
+.close-button {
+  transition: transform 0.5s;
+}
+
+@media (max-width: 800px) {
+  .app-container__navbar {
+    display: none;
+  }
+}

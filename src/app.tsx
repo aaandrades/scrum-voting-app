@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import "./styles.css";
 import Login from "./components/Login";
-import Profile from "./components/Profile";
-import ActiveUsers from "./components/ActiveUsers";
 import VotingProvider from "./components/VotingProvider";
 import { useSocket } from "./Context/Index";
 import { activateUser } from "./Sockets/emits";
 import { socket } from "./Sockets/sockets";
+import Nav from "./components/Nav";
+import "./styles.css";
 import "animate.css";
-import Footer from "./components/Footer";
 
 const App = () => {
   const { context, setContext } = useSocket();
@@ -36,14 +34,10 @@ const App = () => {
         <Login onActivated={handleActivation} />
       ) : (
         <>
-          <nav className="app-container__navbar">
-            <Profile user={user.name} />
-            <ActiveUsers users={context.users} />
-          </nav>
+          <Nav />
           <VotingProvider user={user} />
         </>
       )}
-      <Footer />
     </main>
   );
 };
