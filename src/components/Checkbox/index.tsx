@@ -7,7 +7,7 @@ interface CheckboxProps {
 
 const Checkbox = ({ value, onChange }: CheckboxProps) => {
   return (
-    <label className="checkbox-container">
+    <label className="checkbox-container" tabIndex={0}>
       Are you scrum master?
       <input type="checkbox" checked={value} onChange={onChange} name="scrum" />
       <span className="checkmark"></span>

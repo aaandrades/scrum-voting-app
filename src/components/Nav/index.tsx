@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { useSocket } from "../../Context/Index";
 import ActiveUsers from "../ActiveUsers";
 import Footer from "../Footer";
@@ -6,9 +5,13 @@ import Profile from "../Profile";
 import "./styles.css";
 import Chevron from "../Chevron";
 
-const Nav = () => {
+interface NavProps {
+  isOpen: boolean;
+  handleClick: () => void;
+}
+
+const Nav = ({ isOpen, handleClick }: NavProps) => {
   const { context } = useSocket();
-  const [isOpen, setIsOpen] = useState<boolean>(true);
   const { user } = context;
 
   return (
@@ -24,7 +27,7 @@ const Nav = () => {
         </div>
         <Footer />
       </nav>
-      <Chevron open={isOpen} onClick={() => setIsOpen(!isOpen)} />
+      <Chevron open={isOpen} onClick={handleClick} />
     </>
   );
 };

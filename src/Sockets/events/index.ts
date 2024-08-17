@@ -5,7 +5,6 @@ import { socket } from "../sockets";
 // Socket listeners
 export const socketEvents = ({ setValue }: any) => {
   socket.on("event::join", (data) => {
-    console.log("User joined FE: ", data);
     const { users, description, sessionStarted, id, showingResults } = data;
 
     setValue((state: SocketsState) => {
@@ -24,7 +23,6 @@ export const socketEvents = ({ setValue }: any) => {
   });
 
   socket.on("event::leave", (data) => {
-    console.log("User left FE: ", data);
     setValue((state: SocketsState) => ({ ...state, users: data }));
   });
 
@@ -47,12 +45,28 @@ export const socketEvents = ({ setValue }: any) => {
   });
 
   socket.on("event::showResults", () => {
-    setValue((state: SocketsState) => ({
-      ...state,
-      showResults: true,
-      startVoting: false,
-      voteSubmitted: false,
-    }));
+    setValue((state: SocketsState) => {
+      let isConsensus = false;
+      // Clean users without vote
+      const nonScrumUsers = state.users.filter((user) => !user.scrum);
+      const votes = nonScrumUsers.filter(
+        (user) => user.vote && user.vote !== "?"
+      );
+      // Check if all users have the same vote
+      if (votes.length) {
+        // Check if all users have the same vote
+        const allUsersVoted = votes.length === nonScrumUsers.length;
+        const consensus = votes.every((user) => user.vote === votes[0].vote);
+        isConsensus = consensus && allUsersVoted;
+      }
+      return {
+        ...state,
+        showResults: true,
+        startVoting: false,
+        voteSubmitted: false,
+        isConsensus,
+      };
+    });
   });
 
   socket.on(
@@ -65,7 +79,6 @@ export const socketEvents = ({ setValue }: any) => {
     }) => {
       const { users, userId, showingResults, resetVotes } = data;
       setValue((state: SocketsState) => {
-        console.log("NEW USERS: ", users);
         const isSameUser = userId === state.user.id;
         return {
           ...state,

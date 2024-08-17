@@ -1,5 +1,6 @@
 .voting-results__container {
   width: 100%;
+  min-width: 150px;
   max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -26,8 +27,12 @@
   background-color: var(--primary-200);
 }
 
-.animate__animated.animate__flipInX {
+.animate__animated.animate__flipInY {
   --animate-duration: 700ms;
+}
+
+.animate__animated.animate__zoomIn {
+  --animate-duration: 200ms;
 }
 
 .voting-results__item--scrum {

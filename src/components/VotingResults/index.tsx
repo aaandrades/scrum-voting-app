@@ -17,14 +17,14 @@ const VotingResults = () => {
   };
 
   return (
-    <article className="voting-results__container">
+    <article className="voting-results__container animate__animated animate__zoomIn">
       {users.map((user: User) => (
         <div
           key={user.id}
           className={`${
             user.vote ? "voting-results__item--voted" : "voting-results__item"
           } ${user.scrum ? "voting-results__item--scrum" : ""}
-           ${showResults ? "animate__animated animate__flipInX" : ""}`}
+           ${showResults ? "animate__animated animate__flipInY" : ""}`}
         >
           <span className="voting-results__title">{user.name}</span>
           {user.scrum && (

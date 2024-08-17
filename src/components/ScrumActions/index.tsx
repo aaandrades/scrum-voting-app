@@ -5,9 +5,8 @@ import Button from "../Button";
 import "./styles.css";
 
 const ScrumActions = () => {
-  const {
-    context: { startVoting },
-  } = useSocket();
+  const { context } = useSocket();
+  const { startVoting } = context;
 
   const handleStartVoting = () => {
     startVotingEvent();

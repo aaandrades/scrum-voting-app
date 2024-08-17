@@ -65,8 +65,9 @@
   transition: transform 0.5s;
 }
 
-@media (max-width: 800px) {
-  .app-container__navbar {
+@media (max-width: 500px) {
+  .app-container__navbar,
+  .nav-container__button {
     display: none;
   }
 }

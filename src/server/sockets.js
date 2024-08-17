@@ -8,7 +8,6 @@ export const initializeSockets = (io) => {
     console.log("New connection stabilished");
 
     socket.on("dispatch::voteSubmitted", ({ vote, user }) => {
-      console.log("Vote received: ", vote, user);
       const alreadyVoted = !!users.find((u) => u.id === user.id).vote;
 
       users = users.map((u) => (u.id === user.id ? { ...u, vote: vote } : u));
@@ -42,7 +41,6 @@ export const initializeSockets = (io) => {
     });
 
     socket.on("dispatch::join", (data) => {
-      console.log("User joined: ", data);
       users.push({ ...data, id: socket.id });
       io.emit("event::join", {
         users,
@@ -54,7 +52,6 @@ export const initializeSockets = (io) => {
     });
 
     socket.on("disconnect", () => {
-      console.log("A user disconnected: ", socket.id);
       users = users.filter((user) => user.id !== socket.id);
       if (users.length === 0) {
         users = [];

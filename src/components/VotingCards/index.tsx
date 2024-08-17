@@ -18,7 +18,7 @@ const VotingCards = () => {
   };
 
   return (
-    <article className="voting-container">
+    <article className="voting-container animate__animated animate__zoomIn">
       <h2 className="voting-container__title">Click on a card to vote</h2>
       <div className="voting-container__cards-grid">
         {SCRUM_VALUES.map((value) => (

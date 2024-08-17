@@ -1,5 +1,6 @@
 .ticket-details {
   width: 100%;
+  min-width: 200px;
   max-width: 1200px;
   margin-bottom: 24px;
   background-color: var(--bg-200);
@@ -37,4 +38,20 @@
 
 .ticket-details__empty {
   margin-top: 24px;
+}
+
+@media (max-width: 600px) {
+  .ticket-details__content {
+    flex-direction: column;
+  }
+
+  .ticket-details__content > .button-container {
+    margin-left: 0;
+    margin-top: 15px;
+    height: auto;
+  }
+
+  .ticket-details__content > .general-input {
+    width: 100%;
+  }
 }

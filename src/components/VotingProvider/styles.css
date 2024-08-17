@@ -3,4 +3,15 @@
   font-weight: bold;
   font-size: 2rem;
   color: var(--text-100);
+  text-align: center;
+}
+
+.app-container__content--closed {
+  width: 100%;
+  transition: width 0.5s;
+}
+
+.app-container__content--open {
+  width: calc(100% - 300px);
+  transition: width 0.5s;
 }
