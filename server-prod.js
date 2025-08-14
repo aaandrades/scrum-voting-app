@@ -32,6 +32,6 @@ app.use("*", async (_, res) => {
 
 initializeSockets(io);
 
-httpServer.listen(process.env.PROD_PORT, () => {
-  console.log("Server is running at: ", 5000);
+httpServer.listen(process.env.PORT || 5000, () => {
+  console.log("Server is running at: ", process.env.PORT);
 });
