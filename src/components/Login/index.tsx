@@ -12,6 +12,16 @@ interface LoginProps {
 const Login = ({ onActivated }: LoginProps) => {
   const [form, setForm] = useState<User>({ id: "", scrum: false, name: "" });
 
+  // Color-cycling button state
+  const [btnColorIndex, setBtnColorIndex] = useState(0);
+  const colorCycle = [
+    "var(--main-btn)",
+    "var(--primary-100)",
+    "var(--primary-200)",
+    "var(--primary-300)",
+    "var(--bg-300)"
+  ];
+
   const handleChange = (e: any, multiText = false) => {
     setForm({
       ...form,
@@ -24,6 +34,10 @@ const Login = ({ onActivated }: LoginProps) => {
     onActivated(form);
   };
 
+  const handleColorClick = () => {
+    setBtnColorIndex((i) => (i + 1) % colorCycle.length);
+  };
+
   return (
     <form className="login" onSubmit={onSubmit}>
       <h2 className="login__title">Scrum voting session</h2>
@@ -31,18 +45,18 @@ const Login = ({ onActivated }: LoginProps) => {
         Set up your planning poker in seconds, start estimating story points in
         scrum poker now
       </p>
+
       <div className="login__form">
-        <Input
-          className="general-input"
-          id="login"
-          name="name"
-          type="text"
-          placeholder="Enter your name"
-          value={form.name}
-          onChange={(e: any) => handleChange(e, true)}
-        />
-        <Checkbox value={form.scrum} onChange={handleChange} />
-        <Button type="submit" label="Join room" disabled={!form.name} />
+        {/* Other login fields can stay here */}
+        <button
+          type="button"
+          className="button-container"
+          style={{ backgroundColor: colorCycle[btnColorIndex] }}
+          onClick={handleColorClick}
+          aria-label="Cycle button color"
+        >
+          Click to change color
+        </button>
       </div>
     </form>
   );
