@@ -1,0 +1,23 @@
+.login-page {
+  min-height: 100vh;
+  position: relative;
+}
+
+.terms-button {
+  position: fixed;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  z-index: 900; /* below modal overlay */
+  background: #0f62fe; /* high-contrast blue */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.terms-button:focus {
+  outline: 3px solid #2684FF; /* visible focus ring */
+  outline-offset: 2px;
+}
