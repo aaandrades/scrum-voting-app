@@ -15,6 +15,10 @@ const TicketDetails = () => {
     submitDescriptionEvent(scrumDescription);
   };
 
+  const handleHelloClick = () => {
+    console.log("hello world");
+  };
+
   return (
     <article className="ticket-details">
       <h2 className="ticket-details__title">Ticket details</h2>
@@ -47,6 +51,11 @@ const TicketDetails = () => {
           <em>No description</em>
         </p>
       )}
+
+      {/* Hello World button for OPS-7 */}
+      <div style={{ marginTop: 16 }}>
+        <Button type="button" label="Hello world" onClick={handleHelloClick} />
+      </div>
     </article>
   );
 };
