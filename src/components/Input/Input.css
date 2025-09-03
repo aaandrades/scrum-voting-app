@@ -1,0 +1,6 @@
+.general-input:focus {
+  outline: 3px solid #002cc4;
+  outline-offset: 2px;
+  box-shadow: none; /* prevent double focus rings if a shadow was used */
+  border-color: #002cc4; /* optional: aligns border color with focus color */
+}
