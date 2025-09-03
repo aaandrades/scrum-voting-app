@@ -26,7 +26,6 @@ const TicketDetails = () => {
       {user.scrum ? (
         <form className="ticket-details__content" onSubmit={submitDescription}>
           <Input
-            className="general-input"
             id="description"
             name="description"
             placeholder="Example: www.manulife-jira.com/gwamuer-123123"

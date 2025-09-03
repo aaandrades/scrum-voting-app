@@ -1,7 +1,7 @@
 import "./styles.css";
 
 interface InputProps {
-  className: string;
+  className?: string;
   id: string;
   name: string;
   type: string;
@@ -11,7 +11,7 @@ interface InputProps {
 }
 
 const Input = ({
-  className,
+  className = "general-input",
   id,
   name,
   type,
