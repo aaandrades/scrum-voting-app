@@ -1,3 +1,5 @@
+import "./styles.css";
+
 interface InputProps {
   className: string;
   id: string;
