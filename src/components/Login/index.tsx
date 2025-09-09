@@ -4,6 +4,7 @@ import Checkbox from "../Checkbox";
 import Button from "../Button";
 import { User } from "../../types/main";
 import Input from "../Input";
+import TermsConditionsEntry from "../TermsConditions/TermsConditionsEntry";
 
 interface LoginProps {
   onActivated: (form: User) => void;
@@ -44,6 +45,7 @@ const Login = ({ onActivated }: LoginProps) => {
         <Checkbox value={form.scrum} onChange={handleChange} />
         <Button type="submit" label="Join room" disabled={!form.name} />
       </div>
+      <TermsConditionsEntry />
     </form>
   );
 };
