@@ -1,0 +1,22 @@
+.login__terms-button {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 999;
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.login__terms-button:hover {
+  background: #f9fafb;
+}
+
+.login__terms-button:focus {
+  outline: 3px solid #002cc4;
+  outline-offset: 2px;
+}
