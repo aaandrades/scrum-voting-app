@@ -28,6 +28,7 @@
 .ticket-details__content > .button-container {
   height: 50px;
 }
+
 .ticket-details__content > .general-input {
   width: calc(100% - 190px);
 }
@@ -54,4 +55,11 @@
   .ticket-details__content > .general-input {
     width: 100%;
   }
+}
+
+/* OPS-7: Improved focus visibility for inputs */
+.general-input:focus,
+.general-input:focus-visible {
+  outline: 3px solid #002cc4;
+  outline-offset: 2px;
 }
