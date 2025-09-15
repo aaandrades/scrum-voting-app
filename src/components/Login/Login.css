@@ -1,0 +1,43 @@
+.login {
+  position: relative;
+}
+
+.login__terms-button {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  background-color: #ffffff; /* required */
+  color: #000000; /* required */
+  border: 1px solid #000000;
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.login__terms-button:hover {
+  background-color: #f4f4f4;
+}
+
+/* Accessible focus styles */
+.login__terms-button:focus-visible {
+  outline: 3px solid #002cc4;
+  outline-offset: 2px;
+}
+.login__terms-button:focus {
+  outline: 3px solid #002cc4;
+  outline-offset: 2px;
+}
+
+.login__terms-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Ensure modal title is bold if it renders with a semantic heading */
+#terms-conditions-dialog h1,
+#terms-conditions-dialog h2,
+#terms-conditions-dialog h3 {
+  font-weight: 700;
+}
