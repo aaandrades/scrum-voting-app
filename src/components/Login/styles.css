@@ -12,6 +12,8 @@
     0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
     0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
   border-radius: 4px;
+  position: relative;
+  padding-bottom: 4rem; /* space for the terms button */
 }
 
 .login__title {
@@ -32,4 +34,26 @@
   align-items: flex-start;
   margin: 1rem 0;
   gap: 1rem;
+}
+
+/* Terms & Conditions trigger button */
+.login__terms-button {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background-color: #ffffff; /* required */
+  color: #000000; /* required */
+  border: 1px solid var(--bg-300);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login__terms-button:hover {
+  filter: brightness(0.95);
+}
+
+.login__terms-button:focus-visible {
+  outline: 2px solid var(--primary-300);
+  outline-offset: 2px;
 }
