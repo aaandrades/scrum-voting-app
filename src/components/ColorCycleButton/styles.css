@@ -1,0 +1,19 @@
+.color-cycle-btn {
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  cursor: pointer;
+  border: 1px solid var(--bg-300);
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.055),
+    0 2px 2px hsl(0deg 0% 0% / 0.055), 0 4px 4px hsl(0deg 0% 0% / 0.055),
+    0 8px 8px hsl(0deg 0% 0% / 0.055), 0 16px 16px hsl(0deg 0% 0% / 0.055);
+  transition: filter 0.15s ease, background-color 0.15s ease, color 0.15s ease;
+}
+
+.color-cycle-btn:hover {
+  filter: brightness(0.95);
+}
+
+.color-cycle-btn:focus-visible {
+  outline: 2px solid var(--primary-300);
+  outline-offset: 2px;
+}

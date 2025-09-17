@@ -4,6 +4,7 @@ import Checkbox from "../Checkbox";
 import Button from "../Button";
 import { User } from "../../types/main";
 import Input from "../Input";
+import ColorCycleButton from "../ColorCycleButton";
 
 interface LoginProps {
   onActivated: (form: User) => void;
@@ -31,18 +32,29 @@ const Login = ({ onActivated }: LoginProps) => {
         Set up your planning poker in seconds, start estimating story points in
         scrum poker now
       </p>
+
+      {/* Demo: Button that changes background color on each click */}
+      <div style={{ marginBottom: "1rem" }}>
+        <ColorCycleButton />
+      </div>
+
       <div className="login__form">
         <Input
-          className="general-input"
-          id="login"
+          id="name"
           name="name"
+          placeholder="Your name"
           type="text"
-          placeholder="Enter your name"
           value={form.name}
           onChange={(e: any) => handleChange(e, true)}
         />
-        <Checkbox value={form.scrum} onChange={handleChange} />
-        <Button type="submit" label="Join room" disabled={!form.name} />
+        <Checkbox
+          id="scrum"
+          name="scrum"
+          label="I am Scrum Master"
+          checked={form.scrum}
+          onChange={handleChange}
+        />
+        <Button type="submit" label="Join" />
       </div>
     </form>
   );
