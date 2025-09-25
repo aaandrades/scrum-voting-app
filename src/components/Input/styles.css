@@ -6,6 +6,8 @@
   outline: none;
 }
 
-.general-input:focus {
-  box-shadow: 0 0 0 2px var(--primary-200);
+/* High-contrast focus indicator for accessibility */
+.general-input:focus,
+.general-input:focus-visible {
+  box-shadow: 0 0 0 3px #000000;
 }
