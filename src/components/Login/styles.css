@@ -12,6 +12,7 @@
     0 2px 2px hsl(0deg 0% 0% / 0.075), 0 4px 4px hsl(0deg 0% 0% / 0.075),
     0 8px 8px hsl(0deg 0% 0% / 0.075), 0 16px 16px hsl(0deg 0% 0% / 0.075);
   border-radius: 4px;
+  position: relative; /* needed to anchor bottom-right button */
 }
 
 .login__title {
@@ -32,4 +33,97 @@
   align-items: flex-start;
   margin: 1rem 0;
   gap: 1rem;
+}
+
+/* Terms & Conditions trigger button */
+.login__tc-btn {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  border: 1px solid #000000;
+  color: #000000;
+  background: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  line-height: 1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.login__tc-btn:hover {
+  filter: brightness(0.98);
+}
+
+.login__tc-btn:focus,
+.login__tc-btn:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 2px;
+}
+
+/* Accessible modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: var(--bg-200, #ffffff);
+  color: var(--text-100, #000000);
+  width: 90%;
+  max-width: 600px;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  padding: 1rem 1rem 1.25rem;
+}
+
+.modal:focus {
+  outline: none;
+}
+
+.modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.modal__title {
+  font-size: 1.25rem;
+  font-weight: 700; /* bold per requirement */
+  margin: 0;
+}
+
+.modal__close {
+  background: transparent;
+  border: none;
+  color: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.modal__close:focus,
+.modal__close:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+
+.modal__body {
+  margin-top: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .login__tc-btn {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
 }
